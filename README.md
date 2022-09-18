@@ -1,1 +1,1 @@
-# Technologies-GITHUB.
+# Technologies-GITHUB
