@@ -1,2 +1,1 @@
 # Technologies-GITHUB
-mydocs
