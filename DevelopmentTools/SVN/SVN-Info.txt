@@ -1,0 +1,12 @@
+https://svn.riouxsvn.com/cr7technologies
+User name: chanduram7
+
+github
+geekcomscience@gmail.com
+geekcomscience
+
+git clone https://geekcomscience@github.com/geekcomscience/Technologies-GITHUB.git
+
+git push 
+chanduram07
+reachchandra7@gmail.com

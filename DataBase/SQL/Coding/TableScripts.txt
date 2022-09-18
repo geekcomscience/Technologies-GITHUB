@@ -1,0 +1,35 @@
+https://www.tutorialspoint.com/oracle_terminal_online.php
+
+===============================================Create schema in SQL===============================================
+
+============================================Create Table scripts==================================================
+ 
+ CREATE TABLE COMPANY(
+    empname VARCHAR2(50) NOT NULL,
+    department VARCHAR2(50),
+    city VARCHAR2(50) ,
+	salary NUMBER(8,2)
+);
+
+INSERT INTO COMPANY (empname, department,city,salary) VALUES ('chandra', 'development', 'Bangalore','1500' );
+INSERT INTO COMPANY (empname, department,city,salary) VALUES ('navya', 'development', 'Bangalore','1200' );
+INSERT INTO COMPANY (empname, department,city,salary) VALUES ('shaurya', 'testing', 'Bangalore','1000' );
+INSERT INTO COMPANY (empname, department,city,salary) VALUES ('prashanth', 'testing', 'Bangalore','1100' );
+
+INSERT INTO COMPANY (empname, department,city,salary) VALUES ('manoj', 'development', 'Mysore','1500' );
+INSERT INTO COMPANY (empname, department,city,salary) VALUES ('manjunath', 'development', 'Mysore','1200' );
+INSERT INTO COMPANY (empname, department,city,salary) VALUES ('kishan', 'testing', 'Mysore','1000' );
+INSERT INTO COMPANY (empname, department,city,salary) VALUES ('tilak', 'testing', 'Mysore','1100' );
+
+
+nam1,1,bangalore,1000
+nam5,1,bangalore,2000
+nam2,1,mysore,2000
+nam6,1,mysore,2000
+
+nam3,2,bangalore,2000
+nam7,2,bangalore,2000
+nam4,2,mysore,2000
+nam8,2,bangalore,2000
+
+

@@ -1,0 +1,7 @@
+Studying spring.
+Spring class 1 50 min
+
+
+TOLearn:
+native keyword:
+transient keyword

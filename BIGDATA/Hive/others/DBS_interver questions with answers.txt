@@ -1,0 +1,184 @@
+how to store hive output in hdfs?
+
+INSERT OVERWRITE LOCAL DIRECTORY '/home/hadoop/YourTableDir'
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\t'
+STORED AS TEXTFILE
+SELECT * FROM table WHERE id > 100;
+
+---------------------------------------------
+How to set Replication factor?
+
+Global level : hdfs-site.xml file
+<property> 
+<name>dfs.replication<name> 
+<value>3<value> 
+<description>Block Replication<description> 
+<property>
+
+FIle level:
+
+[training@localhost ~]$ hadoop fs –setrep –w 3 /my/file
+
+Changing the Block size:
+
+<property> 
+<name>dfs.block.size<name> 
+<value>134217728<value> 
+<description>Block size<description> 
+<property>
+
+------------------------------------------------
+how to  compress the output of mapper only?
+
+conf.set("mapreduce.map.output.compress", true)
+conf.set("mapreduce.output.fileoutputformat.compress", false)
+--------------------------------------------------------------
+Diff b/w CONCAT and CONCAT_WS functions in hive?
+
+
+CONCAT( string str1, string str2... )
+
+The CONCAT function concatenates all the stings.
+Example: CONCAT('hadoop','-','hive') returns 'hadoop-hive'
+
+CONCAT_WS( string delimiter, string str1, string str2... )
+
+The CONCAT_WS function is similar to the CONCAT function. Here you can also provide the delimiter, which can be used in between the strings to concat.
+Example: CONCAT_WS('-','hadoop','hive') returns 'hadoop-hive'
+
+--------------------------------------------------------------
+What is NameNode, CheckpointNameNode and BackUpDataNode ?
+
+NameNode(Primary):
+
+The NameNode stores the metadata of the HDFS. The state of HDFS is stored in a file called fsimage and is the base of the metadata. During the runtime modifications are just written to a log file called edits. On the next start-up of the NameNode the state is read from fsimage, the changes from edits are applied to that and the new state is written back to fsimage. After this edits is cleared and contains is now ready for new log entries.
+
+Checkpoint Node:
+
+A Checkpoint Node was introduced to solve the drawbacks of the NameNode. The changes are just written to edits and not merged to fsimage during the runtime. If the NameNode runs for a while edits gets huge and the next startup will take even longer because more changes have to be applied to the state to determine the last state of the metadata.
+
+The Checkpoint Node fetches periodically fsimage and edits from the NameNode and merges them. The resulting state is called checkpoint. After this is uploads the result to the NameNode.
+
+There was also a similiar type of node called “Secondary Node” but it doesn’t have the “upload to NameNode” feature. So the NameNode need to fetch the state from the Secondary NameNode. It also was confussing because the name suggests that the Secondary NameNode takes the request if the NameNode fails which isn’t the case.
+
+Backup Node:
+
+The Backup Node provides the same functionality as the Checkpoint Node, but is synchronized with the NameNode. It doesn’t need to fetch the changes periodically because it receives a strem of file system edits from the NameNode. It holds the current state in-memory and just need to save this to an image file to create a new checkpoint.
+-----------------------------------------------------------------------------------
+Record Reader:It is an abstract class and it is extends the object class and inplements the Closeable interface
+
+org.apache.hadoop.mapreduce.RecordReader<KEYIN,VALUEIN>
+
+public abstract class RecordReader<KEYIN,VALUEIN> extends Object implements Closeable
+
+The record reader breaks the data into key/value pairs for input to the Mapper.
+
+Methods:
+abstract void 	close() :Close the record reader.
+abstract KEYIN 	getCurrentKey():Get the current key
+abstract VALUEIN getCurrentValue():Get the current value.
+abstract float 	getProgress():The current progress of the record reader through its data.
+abstract void 	initialize(InputSplit split, TaskAttemptContext context):Called once at initialization.
+abstract boolean nextKeyValue():Read the next key, value pair.
+--------------------------------------------------------------------------------------
+SequenceFile:
+
+public class SequenceFile extends Object
+
+SequenceFiles are flat files consisting of binary key/value pairs.
+
+SequenceFile provides SequenceFile.Writer, SequenceFile.Reader and SequenceFile.Sorter classes for writing, reading and sorting respectively.
+There are three SequenceFile Writers based on the SequenceFile.CompressionType used to compress key/value pairs:
+
+Writer : Uncompressed records.
+RecordCompressWriter : Record-compressed files, only compress values.
+BlockCompressWriter : Block-compressed files, both keys & values are collected in 'blocks' separately and compressed. The size of the 'block' is configurable. 
+------------------------------------------------------------------------------------
+What will happen if an output directory exists in executing a MapReduce program?
+
+org.apache.hadoop.mapred.FileAlreadyExistsException
+
+------------------------------------------------------------------------------------
+
+Map Side join:
+
+A map-side join between large inputs works by performing the join before the data reaches the map function. For this to work, though, the inputs to each map must be partitioned and sorted in a particular way. Each input data set must be divided into the same number of partitions, and it must be sorted by the same key (the join key) in each source. All the records for a particular key must reside in the same partition. This may sound like a strict requirement (and it is), but it actually fits the description of the output of a MapReduce job.
+
+A map-side join can be used to join the outputs of several jobs that had the same number of reducers, the same keys, and output files that are not splittable which means the ouput files should not be bigger than the HDFS block size. Using the org.apache.hadoop.mapred.join.CompositeInputFormat class we can achieve this.
+
+
+Reduce Side join:
+
+Reduce-Side joins are more simple than Map-Side joins since the input datasets need not to be structured. But it is less efficient as both datasets have to go through the MapReduce shuffle phase. the records with the same key are brought together in the reducer. We can also use the Secondary Sort technique to control the order of the records.
+
+How it is done?
+
+1.The key of the map output, of datasets being joined, has to be the join key - so they reach the same reducer.
+2.Each dataset has to be tagged with its identity, in the mapper- to help differentiate between the datasets in the reducer, so they can be processed accordingly.
+3.In each reducer, the data values from both datasets, for keys assigned to the reducer, are available, to be processed as required.
+4.A secondary sort needs to be done to ensure the ordering of the values sent to the reducer.
+5.If the input files are of different formats, we would need separate mappers, and we would need to use MultipleInputs class in the driver to add the inputs and associate the specific mapper to the same.
+
+--------------------------------------------------------------------------------------------------------------------------------
+Difference between HDFS block and InputSplit ?
+
+– Block is the physical part of disk which has minimum amount of data that can be read or write. The actual size of block is decided during the design phase.
+– For example, the block size of HDFS can be 128MB/256MB though the default HDFS block size is 64 MB.
+– In contrast to block, split is the logical chunk of data created by the InputFormat specified in the MapReduce job configuration.
+– Entire block of data may not fit into single input split.
+
+--------------------------------------------------------------------------------------------
+Could you please let me know how to transfer multiple files say 100 from Local file at a time system to HDFS.?
+
+hadoop fs -copyFromLocal /path/in/linux/*  /hdfs/path
+
+--------------------------------------------------------------------------------------------------------
+
+1.I have one column of table data like 10101ABCD245  I want extract ABCD from this This column using hive or java? please tell query
+
+select SUBSTR(name,5,4) from substring;
+
+2.how flume component import data from server?
+
+3.what is difference between hive,pig analytics and bi tools(cognos,tablue,clickview)
+4.explain about project flow of structure data (source:flatfiles,oracle,mysql)?
+5.how schedule importing data from sources to hdfs using  oozie tool?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

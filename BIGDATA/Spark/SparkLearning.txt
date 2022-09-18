@@ -1,0 +1,7 @@
+Book:
+Scala: I:\ProffessionalCareer\Technologies_Others\BIGDATA\ApacheSpark\Practical Apache Spark_ Using the Scala API.pdf
+Java: I:\ProffessionalCareer\Technologies_Others\BIGDATA\ApacheSpark\learning-spark-lightning-fast-holden-karau(www.ebook-dl.com)
+
+Certification:
+
+

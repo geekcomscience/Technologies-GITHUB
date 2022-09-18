@@ -1,0 +1,10 @@
+============================================================== GIT CLONE ================================================================================
+
+git clone https://chanduram07@github.com/chanduram07/spark-scala-samples.git
+
+
+============================================================== GIT COMMIT ===============================================================================
+
+git config --global user.email "reachchandra7@gmail.com"
+git config --global user.name "Chandra S C"
+
