@@ -1,1 +1,38 @@
 https://www.linkedin.com/posts/ajay026_telsuko-python-learning-activity-6967687970111860736-5Lwy?utm_source=share&utm_medium=member_desktop
+
+Having Python Skills is greatly increases your value in Job Market...
+
+Please don't pay for courses. You can learn for free here........
+
+1. Install Anaconda distribution from here..
+https://www.anaconda.com/products/distribution
+
+1.1 Or practise from online IDE here.....
+https://www.w3schools.com/python/python_exercises.asp
+
+
+2. start your python journey from here
+https://www.youtube.com/playlist?list=PLWKjhJtqVAbkmRvnFmOd4KhDdlK1oIq23
+
+https://www.youtube.com/watch?v=QXeEoD0pB3E&list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3
+
+https://www.freecodecamp.org/news/python-for-everybody/
+
+
+3. Practise Python challenges from here.......
+https://www.hackerrank.com/
+
+
+4. onto your next step! start working on 190+ projects here....
+https://thecleverprogrammer.com/2021/01/14/python-projects-with-source-code/
+
+
+5. Finally list down your projects here........
+https://github.com/
+
+
+follow this 5 step journey to put yourself on top.
+
+Resources are short and crispy. definitely recommended.
+
+I personally like #telsuko youtube channel python course.
