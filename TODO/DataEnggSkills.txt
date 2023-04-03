@@ -1,0 +1,13 @@
+Data Engineering Advisor – Dev Ops
+•	The primary skillset of building and maintaining complex ETL orchestrating pipelines preferably using Airflow
+•	Data Engineering skillset with experience in Airflow, Python, Bash, SQL 
+•	Solid experience in Data or BI engineering dealing with large complex data scenarios
+•	Ability to work with varied data infrastructures – including relational databases, column stores, NoSQL databases, and file-based storage solutions. Exposure to machine learning or machine learning pipelines is a plus. Ability to set up containerized services using Kubernetes and Docker
+
+
+Machine Learning Engineer -DevOps
+•	Engineering Degree in Computer Science/Engineering and minimum of 5 years of working experience in the field
+•	Strong hands-on experience in Linux/Cloud environment and scripting languages as Python and Shell. Experience designing and developing APIs in Python (FastAPI, Flask or Django).
+•	Experience with Python testing frameworks such as unittest or pytest
+•	Excellent knowledge of software development and software testing methodologies along with configuration management practices in Linux-based environments.
+•	Demonstrated Experience writing and maintaining high quality code as well as documentation. Experience working with Docker, Kubernetes in a microservices architecture
