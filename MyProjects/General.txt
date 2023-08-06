@@ -1,0 +1,2 @@
+1. Tell design patterns used in your project?
+2. Explain oops concepts along with how it is implemented in your project?

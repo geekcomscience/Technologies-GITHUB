@@ -1,0 +1,4 @@
+List Down KPIs/Real world use case of DMP?
+You should know overall abstract about your product and indetails about the things which you have mentioned in resume that you knows.
+IBM cognos is reporting tool.
+What is the typical cluster configuration of out product.
