@@ -1,0 +1,297 @@
+NOKIA Round 1
+Given an array of integers add +1 to it and find even number in it and sum it. 
+Use java 8 streams and normal java also 
+
+Given a string find number of occurrences of each character and print top most occuring characters and their count.
+
+Explain Kafka architecture ? Updated doc
+
+In Kafka if I send message to particular topic where does it reside how it get partitioned ? Updated doc
+
+What will happen if a broker fails. How producer behave ? Updated doc
+
+How you test your code have you written any testcases?
+
+Print pyramid of numbers ? Practiced code
+
+What are the ways to connect to kafka from spark streaming write program ?
+
+What are the major issues faced in DMP?  Need to prepare some solid 2 or 3 ? 54min
+
+Dynamic allocation of executors ? 59 min doc updated
+
+Check pointing in spark ? Doc updated
+
+What happens when broker / leader goes down how consumer behaves.? Pending
+
+======================================
+Nokia Round 2 
+Write code for Kafka consumer and producer ?
+
+Write code in spark streaming say you are receiving. Employee data from Kafka (eid|ename| deptid|salary|) and you gave data of dept on CSV file (deptid|deptname) finally data should be written to some db or Kafka by replacing dept of with name. Target data should not contain dept It should have dept id. Use accumulator and broadcast variable
+
+How spark supports fault tolerance check pointing? Doc updated
+
+Doariableused to consume kafka data using spark streaming 
+
+How RDD is created? doc updated
+
+What are the steps involved in DAG level ?
+
+What is purpose of the DAG?
+
+What is the data lineage ?
+
+Say you have applied transformations what lineage will do with it ?  1Hr 5 min
+
+What is staging? Where will this information be stored?
+
+What internally spark engine use for doing lineage (for optmization) ?
+
+Why Kafka when there is active MQ and other message queue
+
+Why you need zookeeper in kafka
+.how fault tolerance is handled in Kafka ?
+What is the default replication factor in Kafka ?
+
+What is the role of broker in Kafka ?
+
+How it is choosen that who will lead the partition ? Generally leaders election ?
+
+How it is choosen that data should be written to particular partition ?
+
+Who will do hashing of partition ?.
+If I do not provide any key how the data is partitioned ?
+If my key is null how data is partitioned ?
+
+Where will you configure the partitioned ? Is it possible to do round robin fashion partitioning ?
+
+How can I do custom partitioning ?
+
+Say my data is very critical I do not want to loose any data ..how will you define your configuration to store critical data acknowledgement information?
+
+What kind of acknowledgement information is configured ?
+
+How many types of ack are there ?
+
+Say my data is continuously coming from producer program . Does each message goes to Kafka or each second it goes or generally how it goes ? 
+
+How many agents are running in flume cluster ?
+What is group co ordinator in Kafka ?
+
+Say three kafka brokers are running and 3 brokers from flume is also running I have three partition .. is it suitable architecture ..may be I need to learn what is the suitable architecture for Kafka and flume ? In this case how many consumers are enough ?
+
+I have 100 employee records employee object is there and I have list of employee objects .. I have 3 modules one module is expecting sorting by id another is expecting sorting by name and another is sorting by dept I do not want to do query wise how will you do ..how will you do it ?
+
+=======================================
+HCL round 2 interview
+Say data is written to multiple partition how multiple consumers read message from partition ?
+
+Say you have 2 consumers from 2 different consumer groups. All are reading same topic and they are reading same partition so when a new message arrived to which consumer data will go..of both read message will it have any issue 
+
+How you are integrating Kafka with spark ?
+
+What is the frequency of data in spark streaming ?
+
+Word count example in spark with java
+
+What is the difference between map and flat map
+
+What is the difference between reduce by key and group by key
+
+What is the difference between colease and re-partition 
+
+What is DAG in spark ?
+
+How will you handle null value or missing value.say you receive file and file has 1 lakh record  and job got failed inbetween say while processing 60k records say job is failed how do you handle it ?  Also because here data is having null value .how will you fix data issue in this case
+
+What are the optimisation techniques used in spark ?
+
+What is mapside join ?
+
+=======================================Mindtree interview
+How do you rate yourself in spark and what are the things you have done in spark ?
+
+What is executor memory in spark ? Doc Updated
+
+How do we calculate executor memory ?
+
+Is it per mapper ? Or is it per reducer ? Does this have any relationship with those things ?
+
+Explain dynamic allocation in spark ..
+Is it one mapper one JVM or executor like that ?
+
+You have heard of spark lineage right like if RDD is lot we can reconstruct it what is meant by data is lost or RDD is lost mean ? How do we say data is lost or task is lost in which scenario it would happen ?
+
+So if the task goes down then the data needs to be read from disk again ?
+
+Can you explain how Kafka and spark work together ?
+
+What if topic goes down ? 
+
+How fault tolerance happens in Kafka ?
+
+In Kafka configuration to receive some size of data ?What are Dstreams?
+
+Checkpointing in streaming 
+
+Do we have lazy evaluation in streaming?
+
+On RDD if I do map operation and filter how many RDDs will be created ..? When action is performed what is that happening 
+
+How do you clear up RDD when you have so much of RDDs
+
+
+=======================================
+Impetus 
+What is the version of spark you are using ? 
+
+How spark handles a Job?
+
+Explain stages in spark , how stages are created ? When it is create ?
+
+There is some transformation and after transformation we perform some action there is no shuffling of data happened. How many stages will be there ?
+
+What will you do when you get out of memory in spark what steps will you take to debug the issue ?
+
+What is the purpose of zookeeper?
+
+Say we have map reduce job can you guess how many number of mappers will be there in the job
+Is there any linkage to block size ?
+
+For a particular block only one mapper will run or multiple mapper runs  
+
+Say we have data in MySQL and we have to migrate it to Hadoop how we do that ?
+How to create thread safe singleton
+
+How many ways we can create single ton in java ?
+
+Create immutable class in java?
+
+Say we created final object of class employee employee class has a field by name now we try to edit the name field ...will it be success or we face any error 
+
+What is covariant and invariant in java
+
+Can we override private or static method in java
+
+How hashmap works internally 
+
+Which is better to use array list or linked list in what situations we can use those ..
+
+
+Will array list maintain insertion order ? 
+Will linked list maintains insertion order ?
+
+Puzzle how will you calculate 45 min from 2 wires which takes 1 hour to burn completely 
+
+How will you schedule Bigdata jobs
+
+Have you used any workflow engines ?
+
+What are the stages of maven
+
+Incase of maven say we are connecting to maven repository and a particular jar is not available in maven repository which you can think is internal jar but we want to use that jar in our code so can we create that jar also as dependency in our project ..can we do that in maven ?
+
+Interviews File 2:
+
+Need write down questions from 19-04-2019 interviews
+
+======= spark and data structure interview ====
+I have 10 integers and want to create three partitions how do you do it in spark ?
+
+What does parallelize method do?
+
+How many nodes does your spark cluster has ? 
+
+What is the rate at which data was coming to DMP ?
+
+What is the batch size ? What is the latency ?
+What are all the challenges faced in your project ?
+
+
+What was the processing time of your tasks ?
+
+Did you use Kafka or Kafka stream processing ?
+
+What was the number of threads?
+
+How many partitions you had per topic ?
+
+How many executors running in the server ?
+
+What are the spark operations you have performed on your data ?
+
+What is the block size of your HDFS cluster?
+
+Spark is micro batching where as Kafka is realtime ? So which one you choose ?
+
+I have set of 100 numbers I give you 99 numbers ..how will you find which number is missing 
+
+Fibonacci series find 5th Fibonacci number
+
+What is time complexity in algorithm?
+What is space complexity in algorithms ?
+
+How will you reverse linked list ?
+
+=========Mphasis Interview===============
+
+How to create Hive table from code ?
+Say you have dataframe 1 and dataframe2 you will join both using inner join ..in that case when you do show you will get error because both tables have salary how will you resolve this duplicate column ambiguity ?
+
+Why SQL context is used ? Which is parent class SQL context or Hive context ?
+
+=======TekSystem VISA round 1============
+What is the difference between RDD,DataFrame,DataSet?
+
+What is the actual difference between DataFrame and Dataset?
+
+What is the Java API you used for Dataset?
+
+In spark SQL you were getting schema from Hive table or manually?
+
+What is the difference between coalesce and re-partition?
+
+What all APIs you have used in Java? 
+
+What is the difference between java RDD scala RDD?
+
+In which mode you were submitting your spark Job?
+
+How you used to create micro batch in streaming ?
+
+Which version of spark you were using ?
+
+How will you put a file in HDFS?
+
+What is the difference between internal table and external table ?
+
+What are the different file formats you have used in Hive or generally in a Bigdata system ?
+
+Difference between hive's cluaterby  distribute by  sort by ?
+Why to use ORC or other file systems ?
+
+Fixed with file ? How you read in Hive ?
+
+What is out of memory error in java ?
+
+What kind of GC you he used?
+
+What final finally and finalize in java ?
+
+If I want to store my data in sorted order which collection we should use ?
+
+I have a sentence I wanted to sort based on its length of each word on
+
+Singleton design pattern ?
+
+Linux command to find size of the folder
+
+How will you pass arguments to SH file?
+
+How will you compile job in maven ?
+
+Suppose if you want to change the code how will you do it in git ?
+
+=====================l&T===============
+Techgig tests
