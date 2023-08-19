@@ -1,0 +1,55 @@
+====================================================================== Database ====================================================================================
+create database scaler_class;
+create database if not exists scaler_class;
+
+drop database scaler_class;
+drop database if exists scaler_class;
+
+use scaler_class;
+====================================================================================================================================================================
+
+=====================================================================  Table =======================================================================================
+
+create table if not exists batches(
+batch_id int primary key auto_increment,
+batch_name varchar(20) NOT NULL,
+strength int
+);
+
+
+
+create table if not exists batches(
+batch_id int primary key auto_increment,
+batch_name varchar(20) NOT NULL,
+instructor_name varchar(20) default ‘abc’,
+primary key(batch_id),
+foreign key (instructor_id)
+references instructors(id)
+on update restrict
+on delete cascade
+);
+
+
+create table if not exists batches(
+batch_id int primary key auto_increment,
+batch_name varchar(20) NOT NULL,
+strength int
+);
+
+create table if not exists student(
+id int primary key auto_increment,
+name varchar(20),
+email varchar(20)
+);
+
+
+Describe a Table
+describe batches;
+
+
+alter table students add column batch_id int
+Alter table students
+add foreign key fk_students_batches (batch_id)
+references batches (batch_id);
+
+=======================================================================================================
